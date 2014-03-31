@@ -1,0 +1,29 @@
+<h1>Auswertung der Diagnose</h1>
+<BR>
+
+<h2>So wurde beantwortet:</h2>
+<table>
+
+  <% @diagnosed_array.each do |d| %>
+	<tr>
+		<td>
+		Frage <%= d[0] -%> wurde mit <%= d[1] -%>. beantwortet.<BR>
+		<%= @questions.find(d[0]).content -%> <br>
+		Richtig wäre gewesen: <%= @questions.find(d[0]).right.to_s -%><br>
+		Richtige Antwort: <%= 	case @questions.find(d[0]).right.to_s
+					when "1" then @questions.find(d[0]).answer1
+					when "2" then @questions.find(d[0]).answer2
+					when "3" then @questions.find(d[0]).answer3
+					when "4" then @questions.find(d[0]).answer4
+					end -%><br>
+		</td>
+
+	</tr>
+  <% end %>
+
+</table>
+
+<h2>Du hast also <%= @diagnosed_right %> richtig.</h2>
+<!--<h2>Array: <%= @diagnosed_array %></h2>-->
+	
+<%= link_to "Erneut", :action => "index" %>
