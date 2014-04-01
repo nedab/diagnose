@@ -4,7 +4,7 @@ class MainsController < ApplicationController
   # GET /mains
   # GET /mains.json
   def index
-    @mains = Main.all
+    @mains = Main.all.order('mains.created_at DESC')
   end
 
   # GET /mains/1
