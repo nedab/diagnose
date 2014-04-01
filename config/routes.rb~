@@ -1,5 +1,14 @@
 Diagnose::Application.routes.draw do
-  resources :diagnoses
+
+  #resources :diagnoses
+  
+  resources :diagnoses do
+    collection do
+      get 'diagnosed'
+      post 'create'
+      get 'index'
+    end
+  end
 
   resources :questions
 

@@ -48,3 +48,5 @@ gem 'foundation-rails'
 
 # using thin webserver as default: "rails s"
 gem 'thin'
+
+gem 'simple_form'

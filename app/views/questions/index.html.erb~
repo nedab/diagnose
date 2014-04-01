@@ -21,7 +21,7 @@
   <tbody>
     <% @question.each do |q| %>
       <tr>
-        <td><%= q.category.title %></td>
+        <td><%= q.inspect %></td>
         <td><%= q.title %></td>
         <td><%= q.number %></td>
         <td><%= q.content %></td>

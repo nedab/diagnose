@@ -32,8 +32,6 @@ Forgive me for not being THAT clear with my names, e.g. sindular and plural form
 * get random questions from the pool each refreshing of web page
 * make the diagnoses (http://localhost:3000/diagnosed) more precise
 * put another column in place with LaTeX exercises to be send to the user after diagnoses
-* establishing a whole site around the checklist core like user management etc.
-* storing the results in a database rather than a session variable
 
 
 ## Authors

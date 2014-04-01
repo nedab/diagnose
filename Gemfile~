@@ -46,4 +46,5 @@ end
 
 gem 'foundation-rails'
 
+# using thin webserver as default: "rails s"
 gem 'thin'

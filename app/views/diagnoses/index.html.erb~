@@ -38,6 +38,6 @@
 <% end %>
 <br>
 
-<%= link_to 'New Diagnosis', :action => "index" %>
+<%= link_to 'Erneut', :action => "index" %>
 
 

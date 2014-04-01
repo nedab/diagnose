@@ -1,6 +1,6 @@
 Diagnose::Application.routes.draw do
 
-  #resources :diagnoses
+  resources :categories
   
   resources :diagnoses do
     collection do
