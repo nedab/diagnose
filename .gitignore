@@ -16,14 +16,12 @@
 /tmp
 
 # ignore Cap stuff
-Capfile
-config/deploy.rb
+#Capfile
+#config/deploy.rb
 
 #rails specific
 *.sqlite3
 #config/database.yml
-log/*
-tmp/*
 
 ## generic files to ignore
 *~
