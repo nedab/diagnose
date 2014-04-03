@@ -19,13 +19,13 @@ test:
   timeout: 5000
 
 production:
-  adapter: sqlite3
-  database: db/production.sqlite3
-  pool: 5
-  timeout: 5000
-  #adapter: postgresql
-  #encoding: unicode
-  #database: diagnose
+  #adapter: sqlite3
+  #database: db/production.sqlite3
   #pool: 5
-  #username: 
-  #password: 
+  #timeout: 5000
+  adapter: postgresql
+  encoding: unicode
+  database: diagnose
+  pool: 5
+  username: gitnedab
+  password: kilton22

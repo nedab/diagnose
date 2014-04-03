@@ -38,17 +38,17 @@ end
 # Use unicorn as the app server
 # gem 'unicorn'
 
-# Use Capistrano for deployment
-gem 'capistrano', group: :development
-
-# rails specific stuff
-gem 'capistrano-rails'
-
-# integrate bundler with capistrano
-gem 'capistrano-bundler'
-gem 'capistrano-rvm'
-#gem 'rvm1-capistrano3', require: false
-gem 'capistrano-rbenv'
+## Use Capistrano for deployment
+#gem 'capistrano', group: :development
+#
+## rails specific stuff
+#gem 'capistrano-rails'
+#
+## integrate bundler with capistrano
+#gem 'capistrano-bundler'
+#gem 'capistrano-rvm'
+##gem 'rvm1-capistrano3', require: false
+#gem 'capistrano-rbenv'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
@@ -62,3 +62,5 @@ gem 'thin'
 gem 'simple_form'
 
 gem 'pg'
+
+gem 'mina'
