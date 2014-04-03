@@ -39,14 +39,25 @@ end
 # gem 'unicorn'
 
 # Use Capistrano for deployment
-# gem 'capistrano', group: :development
+gem 'capistrano', group: :development
+
+# rails specific stuff
+gem 'capistrano-rails'
+
+# integrate bundler with capistrano
+gem 'capistrano-bundler'
+gem 'capistrano-rvm'
+# gem 'capistrano-rbenv'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-gem 'foundation-rails'
+# use of 5.1.1.0 because of breakage in 5.2.0.0
+gem 'foundation-rails', '5.1.1.0'
 
 # using thin webserver as default: "rails s"
 gem 'thin'
 
 gem 'simple_form'
+
+gem 'pg'

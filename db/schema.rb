@@ -13,15 +13,12 @@
 
 ActiveRecord::Schema.define(version: 20140401142740) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "categories", force: true do |t|
     t.string   "title"
     t.text     "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "controllers", force: true do |t|
-    t.string   "diagnose"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

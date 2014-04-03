@@ -1,12 +1,14 @@
 class QuestionsController < ApplicationController
   before_action :set_question, only: [:show, :edit, :update, :destroy]
-
+  rescue_from ActiveRecord::RecordNotFound, :with => :record_not_found
+  
   # GET /questions
   # GET /questions.json
   def index
 
     @question = Question.all
 
+    @category = Category.all
   end
 
   # GET /questions/1
@@ -76,5 +78,9 @@ class QuestionsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def question_params
       params.require(:question).permit(:title, :number, :content, :answer1, :answer2, :answer3, :answer4, :right, :category_id)
+    end
+
+    def record_not_found
+      redirect_to action: :new
     end
 end
