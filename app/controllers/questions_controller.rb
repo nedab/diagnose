@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
   before_action :set_question, only: [:show, :edit, :update, :destroy]
-  rescue_from ActiveRecord::RecordNotFound, :with => :record_not_found
+  #rescue_from ActiveRecord::RecordNotFound, :with => :record_not_found
   
   # GET /questions
   # GET /questions.json
@@ -78,7 +78,7 @@ class QuestionsController < ApplicationController
       params.require(:question).permit(:title, :number, :content, :answer1, :answer2, :answer3, :answer4, :right, :category_id)
     end
 
-    def record_not_found
-      redirect_to action: :index
-    end
+  # def record_not_found
+  #   redirect_to action: :index
+  # end
 end
