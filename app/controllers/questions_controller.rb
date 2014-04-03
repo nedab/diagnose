@@ -78,6 +78,6 @@ class QuestionsController < ApplicationController
     end
 
     def record_not_found
-      redirect_to action: :new
+      redirect_to action: :index
     end
 end
