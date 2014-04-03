@@ -21,7 +21,7 @@ config/deploy.rb
 
 #rails specific
 *.sqlite3
-#config/database.yml
+config/database.yml
 log/*
 tmp/*
 
