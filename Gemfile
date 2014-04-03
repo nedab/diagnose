@@ -48,7 +48,7 @@ gem 'capistrano-rails'
 gem 'capistrano-bundler'
 gem 'capistrano-rvm'
 #gem 'rvm1-capistrano3', require: false
-# gem 'capistrano-rbenv'
+gem 'capistrano-rbenv'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
