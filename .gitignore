@@ -22,7 +22,7 @@ config/deploy/*
 
 #rails specific
 *.sqlite3
-#config/database.yml
+config/database.yml
 
 ## generic files to ignore
 *~
