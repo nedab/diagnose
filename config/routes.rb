@@ -10,11 +10,7 @@ Diagnose::Application.routes.draw do
     end
   end
 
-  #resources :questions
-  
-  resources :questions do
-      resources :categories
-  end
+resources :questions
   
 resources :mains
 
@@ -23,7 +19,7 @@ resources :mains
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'questions#index'
+  #root 'questions#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
