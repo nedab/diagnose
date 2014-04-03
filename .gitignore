@@ -14,3 +14,11 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+# ignore Cap stuff
+Capfile
+config/deploy.rb
+
+# once database is put up, ignore changes because working with github AND server
+config/database.yml
+
