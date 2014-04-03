@@ -23,3 +23,5 @@ production:
   encoding: unicode
   database: diagnose
   pool: 5
+  username: gitnedab 
+  password: kilton22
