@@ -1,6 +1,7 @@
-# diagnose!
+# diagnose! BETA
 
 A simple app for running diagnoses.
+This app is everything but ready, so dont put too much work into it before checking the code yourself.
 
 ## Table of contents
 
@@ -13,6 +14,7 @@ A simple app for running diagnoses.
 ## Quick start
 
 - Clone the repo: `git clone https://github.com/nedab/diagnose.git`.
+- Create your own database.yml - just use a rails 4 one with sqlite3 settings e.g.
 - Or just download the whole folder and run `rails s`
 - Change into the directory and start the server and put stuff into the database
 
