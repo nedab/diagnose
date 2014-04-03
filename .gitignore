@@ -16,8 +16,9 @@
 /tmp
 
 # ignore Cap stuff
-#Capfile
-#config/deploy.rb
+Capfile
+config/deploy.rb
+config/deploy/*
 
 #rails specific
 *.sqlite3
