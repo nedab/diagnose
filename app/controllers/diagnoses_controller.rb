@@ -1,6 +1,8 @@
 class DiagnosesController < ApplicationController
   before_action :set_diagnosis
 
+  rescue_from ActiveRecord::RecordNotFound, :with => :record_not_found
+
   # GET /diagnoses
   # GET /diagnoses.json
   def index
@@ -29,16 +31,22 @@ class DiagnosesController < ApplicationController
 
         # ["1 2", "2 1", "3 2"]
 
-        
+
 	right = []
         result = []
 	array = []
-
+begin
 	params[:question_ids].each do |p|
 		result = p.gsub(/\s+/m, ' ').strip.split(" ")
 		array << [result[0],result[1]]
 		if result[1] == Question.find(result[0].to_i).right.to_s then right << [result[0],result[1]] end
 	end
+
+rescue
+    flash[:notice] = "Etwas ging schief, versuche es noch einmal."
+    redirect_to(:action => 'index')
+    return
+  end
 
 	if right.empty?
 		r = "0" 
@@ -86,4 +94,9 @@ class DiagnosesController < ApplicationController
     def diagnosis_params
       params[:diagnosis]
     end
+
+# def record_not_found
+  #   redirect_to action: :index
+  # end
+
 end

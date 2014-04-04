@@ -1,26 +1,7 @@
-<%= form_for(@category) do |f| %>
-  <% if @category.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@category.errors.count, "error") %> prohibited this category from being saved:</h2>
 
-      <ul>
-      <% @category.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+<%= simple_form_for @category do |f| %>
 
-<div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_field :description %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= f.input :title, label: 'Kategorie bzw. Obergebiet',:input_html => {:style=> 'width: 300px'} %>
+  <%= f.input :description, label: 'Eine kleine Beschreibung?' ,:input_html => {:style=> 'width: 300px'}%>
+  <%= f.button :submit %>
 <% end %>
