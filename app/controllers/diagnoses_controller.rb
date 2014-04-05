@@ -1,5 +1,6 @@
 class DiagnosesController < ApplicationController
-  before_action :set_diagnosis, except: [:math, :chemistry]
+  # there is no model to be looked through
+  #before_action :set_diagnosis, except: [:math, :chemistry]
 
   #rescue_from ActiveRecord::RecordNotFound, :with => :record_not_found
 
@@ -67,7 +68,6 @@ begin
 	end
 
 rescue
-    flash[:notice] = "Etwas ging schief, versuche es noch einmal."
     redirect_to(:action => 'index')
     return
   end
@@ -110,10 +110,10 @@ rescue
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_diagnosis
-      #### there is no model to be found!
-      #@diagnosis = Diagnosis.find(params[:id])
-    end
+    #  #### there is no model to be found!
+    #def set_diagnosis
+    #  #@diagnosis = Diagnosis.find(params[:id])
+    #end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def diagnosis_params
