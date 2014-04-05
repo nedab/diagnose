@@ -1,7 +1,13 @@
 Diagnose::Application.routes.draw do
-
+  
+  
   resources :categories
   
+  controller 'diagnoses' do
+    get 'diagnoses/mathe' => 'diagnoses#math'
+    get 'diagnoses/chemie' => 'diagnoses#chemistry'
+  end
+
   resources :diagnoses do
     collection do
       get 'diagnosed'
@@ -10,8 +16,22 @@ Diagnose::Application.routes.draw do
     end
   end
 
-resources :questions
+  #get 'questions/mathe' => 'questions#mathe'
   
+  controller 'questions' do
+    get 'questions/mathe' => 'questions#math'
+    get 'questions/chemie' => 'questions#chemistry'
+  end
+
+  resources :questions
+  
+ # resources :questions do
+ #   collection do
+ #     get 'mathe' => 'questions#mathe'
+ #   end
+ # end
+
+
 resources :mains
 
 
@@ -19,7 +39,7 @@ resources :mains
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  #root 'questions#index'
+  root 'diagnoses#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

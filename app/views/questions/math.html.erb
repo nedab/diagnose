@@ -1,0 +1,43 @@
+<h1>Math questions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Kategorie</th>
+      <th>Title</th>
+      <th>Number</th>
+      <th>Content</th>
+      <th>Answer1</th>
+      <th>Answer2</th>
+      <th>Answer3</th>
+      <th>Answer4</th>
+      <th>Right</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @maths.each do |q| %>
+      <tr>
+        <td><%= q.category.title %></td>
+        <td><%= q.title %></td>
+        <td><%= q.number %></td>
+        <td><%= q.content %></td>
+        <td><%= q.answer1 %></td>
+        <td><%= q.answer2 %></td>
+        <td><%= q.answer3 %></td>
+        <td><%= q.answer4 %></td>
+        <td><%= q.right %></td>
+        <td><%= link_to 'Show', q %></td>
+        <td><%= link_to 'Edit', edit_question_path(q) %></td>
+        <td><%= link_to 'Destroy', q, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Question', new_question_path %>

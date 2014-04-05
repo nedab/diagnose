@@ -1,12 +1,12 @@
 class DiagnosesController < ApplicationController
-  before_action :set_diagnosis
+  before_action :set_diagnosis, except: [:math, :chemistry]
 
-  rescue_from ActiveRecord::RecordNotFound, :with => :record_not_found
+  #rescue_from ActiveRecord::RecordNotFound, :with => :record_not_found
 
   # GET /diagnoses
   # GET /diagnoses.json
   def index
-    @questions = Question.all
+    #@questions = Question.all#.sample(2)
 
    # THIS IS IMPORTANT. Without this, you still get the last checked value when the user come to the index action directly.
 	session[:tmp_diagnosis_raw] = nil
@@ -15,12 +15,36 @@ class DiagnosesController < ApplicationController
 
   end
 
+
+  def math
+    @maths = Question.joins(:category).where("categories.title = ?", "Mathematik").sample(2) 
+
+   # THIS IS IMPORTANT. Without this, you still get the last checked value when the user come to the index action directly.
+	session[:tmp_diagnosis_raw] = nil
+	session[:tmp_diagnosis_right] = nil
+	session[:tmp_diagnosis_array] = nil
+
+  end
+
+
+  def chemistry
+    @chemistries= Question.joins(:category).where("categories.title = ?", "Chemie").sample(2) 
+
+   # THIS IS IMPORTANT. Without this, you still get the last checked value when the user come to the index action directly.
+	session[:tmp_diagnosis_raw] = nil
+	session[:tmp_diagnosis_right] = nil
+	session[:tmp_diagnosis_array] = nil
+
+  end
+
+
+
   def show
   end
 
-	def edit
+  def edit
 	
-	end
+  end
 
 
 
@@ -87,6 +111,7 @@ rescue
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_diagnosis
+      #### there is no model to be found!
       #@diagnosis = Diagnosis.find(params[:id])
     end
 
