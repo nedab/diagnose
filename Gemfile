@@ -67,3 +67,8 @@ gem 'simple_form'
 
 gem 'pg'
 
+gem 'friendly_id'
+
+gem 'haml'
+
+gem 'html2haml'

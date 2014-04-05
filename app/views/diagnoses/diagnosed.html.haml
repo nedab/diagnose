@@ -1,0 +1,33 @@
+%h1 Auswertung der Diagnose
+%br/
+%h2 So wurde beantwortet:
+%table
+  %th Fragen Nr.
+  %th "Deine" Nr.
+  %th "Deine" Antwort
+  %th Richtige Nummer
+  %th Richtige Antwort
+  - @diagnosed_array.each do |d|
+    %tr
+      %td
+        = d[0]
+        \.
+      %td
+        = d[1]
+        \.
+      %td
+        = @questions.find(d[0]).content
+      %td
+        = @questions.find(d[0]).right.to_s
+        \.
+      %td
+        = case @questions.find(d[0]).right.to_s       |
+          when "1" then @questions.find(d[0]).answer1 |
+          when "2" then @questions.find(d[0]).answer2 |
+          when "3" then @questions.find(d[0]).answer3 |
+          when "4" then @questions.find(d[0]).answer4 |
+          end                                         |
+%h2
+  Du hast also #{@diagnosed_right} richtig.
+/ <h2>Array: <haml:loud> @diagnosed_array </haml:loud></h2>
+= link_to "Erneut", :action => "index"

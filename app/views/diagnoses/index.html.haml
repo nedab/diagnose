@@ -1,0 +1,37 @@
+%br/
+%br/
+%h1 Diagnose gefällig?
+%br/
+%br/
+= link_to "Zufällige Fragen zur Mathematik", {controller: "diagnoses", action: "math"}, {class: 'button expand'}
+%br/
+%br/
+= link_to "Zufällige Fragen zur Chemie", {controller: "diagnoses", action: "chemistry"}, {class: 'button expand'}
+%br/
+%br/
+- if false
+  %h1 Listing math questions for diagnosis
+  = flash[:notice]
+  %br/
+  = form_tag({:action => :create}, {:method => :post }) do
+    %table
+      - @questions.each do |question|
+        %tr
+          %td
+            = question.content
+          %td
+            = check_box_tag 'question_ids[]', [question.id,1]
+            = question.answer1
+          %td
+            = check_box_tag 'question_ids[]', [question.id,2]
+            = question.answer2
+          %td
+            = check_box_tag 'question_ids[]', [question.id,3]
+            = question.answer3
+          %td
+            = check_box_tag 'question_ids[]', [question.id,4]
+            = question.answer4
+    = flash[:message]
+    %br/
+    = submit_tag("Fertig und möchte eine Auswertung", class: "button")
+  %br/

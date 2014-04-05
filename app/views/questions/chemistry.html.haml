@@ -1,0 +1,33 @@
+%h1 Chemistry questions
+%table
+  %thead
+    %tr
+      %th Kategorie
+      %th Title
+      %th Number
+      %th Content
+      %th Answer1
+      %th Answer2
+      %th Answer3
+      %th Answer4
+      %th Right
+      %th
+      %th
+      %th
+  %tbody
+    - @chemistries.each do |q|
+      %tr
+        %td= q.category.title
+        %td= q.title
+        %td= q.number
+        %td= q.content
+        %td= q.answer1
+        %td= q.answer2
+        %td= q.answer3
+        %td= q.answer4
+        %td= q.right
+        %td= link_to 'Show', q
+        %td= link_to 'Edit', edit_question_path(q)
+        %td= link_to 'Destroy', q, method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+= link_to 'New Question', new_question_path

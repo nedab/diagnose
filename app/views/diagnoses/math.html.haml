@@ -1,0 +1,27 @@
+%h1 Listing math questions for diagnosis
+= flash[:notice]
+%br/
+= form_tag({:action => :create}, {:method => :post }) do
+  %table
+    - @maths.each do |question|
+      %tr
+        %td
+          = question.content
+        %td
+          = check_box_tag 'question_ids[]', [question.id,1]
+          = question.answer1
+        %td
+          = check_box_tag 'question_ids[]', [question.id,2]
+          = question.answer2
+        %td
+          = check_box_tag 'question_ids[]', [question.id,3]
+          = question.answer3
+        %td
+          = check_box_tag 'question_ids[]', [question.id,4]
+          = question.answer4
+  = flash[:message]
+  %br/
+  = submit_tag("Fertig und möchte eine Auswertung", class: "button", :action => "create")
+%br/
+= link_to 'Andere Kategorie wählen', :action => "index"
+= link_to 'Neue Zufallsfragen', :action => "math"

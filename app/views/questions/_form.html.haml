@@ -1,0 +1,11 @@
+= simple_form_for @question do |f|
+  = f.input :title , :input_html => {:style=> 'width: 300px'}, label: 'Themengebiet oder Unterthema'
+  = f.association :category, include_blank: false ,:input_html => {:style=> 'width: 300px'}
+  = f.input :number , :input_html => {:style=> 'width: 300px'}, label: 'Checklistennummer?'
+  = f.input :content ,:input_html => {:style=> 'width: 500px'}, label: 'Frage'
+  = f.input :answer1 ,:input_html => {:style=> 'width: 400px'}, label: 'Antwort 1'
+  = f.input :answer2, :input_html => {:style=> 'width: 400px'}, label: 'Antwort 2'
+  = f.input :answer3, :input_html => {:style=> 'width: 400px'}, label: 'Antwort 3'
+  = f.input :answer4, :input_html => {:style=> 'width: 400px'}, label: 'Antwort 4'
+  = f.input :right ,label: 'Welche Antwortnummer ist richtig?',:input_html => {:maxlength =>1,:style=> 'width: 50px'}
+  = f.button :submit
