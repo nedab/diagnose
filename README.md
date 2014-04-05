@@ -29,7 +29,7 @@ There are some URL you should know:
 * create and see categories http://localhost:3000/categories
 * running a diagnosis: http://localhost:3000/diagnoses
 * getting a (hardcoded) random diagnosis in math http://localhost:3000/diagnoses/mathe
-* getting a (hardcoded) random diagnosis in math http://localhost:3000/diagnoses/chemie
+* getting a (hardcoded) random diagnosis in chemistry http://localhost:3000/diagnoses/chemie
 
 Forgive me for not being THAT clear with my names, e.g. sindular and plural form for I am a german and the program started out in my native language.
 
@@ -58,8 +58,14 @@ Forgive me for not being THAT clear with my names, e.g. sindular and plural form
 ## How it works
 
 There are two databases with categories and questions which are associated.
-The diagnosis is created through questions model and send an array to diagnoses controller.
+The diagnosis is created through questions model and sends an array to diagnoses controller.
 That array is processed and send to diagnosed view.
+
+The questions model has several columns, at least four for possible answers and on integer with a "pointer" to the right one.
+When the boxes are checked they create a list of parameters which is evaluated and put into an two dimensional array stored in a session variable, also stored is the count of right answers.
+
+The diagnosed view shows these arrays and gives you also the right answer.
+That is done by evaluating the array by a case method.
 
 ## AuthorS
 
