@@ -17,4 +17,8 @@
  */
 @import "foundation_and_overrides";
 /* Add imports of custom sass/scss files here */
-
+.red_bold {color: red;
+    font-weight: bold;}
+.green_bold {color: green;
+    font-weight: bold;}
+.center {text-align: center;}

@@ -4,23 +4,23 @@
 %table
   %th Fragen Nr.
   %th "Deine" Nr.
-  %th "Deine" Antwort
+  %th Frage 
   %th Richtige Nummer
   %th Richtige Antwort
   - @diagnosed_array.each do |d|
     %tr
-      %td
+      %td.center
         = d[0]
         \.
-      %td
+      %td.center
         = d[1]
         \.
       %td
         = @questions.find(d[0]).content
-      %td
+      %td.green_bold.center
         = @questions.find(d[0]).right.to_s
         \.
-      %td
+      %td.green_bold
         = case @questions.find(d[0]).right.to_s       |
           when "1" then @questions.find(d[0]).answer1 |
           when "2" then @questions.find(d[0]).answer2 |
