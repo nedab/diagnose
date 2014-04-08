@@ -24,7 +24,6 @@ class DiagnosesController < ApplicationController
 	session[:tmp_diagnosis_raw] = nil
 	session[:tmp_diagnosis_right] = nil
 	session[:tmp_diagnosis_array] = nil
-
   end
 
 
@@ -97,6 +96,7 @@ rescue
   #GET from form_tag
   def diagnosed
 
+    @url = request.original_url
 
         @diagnosed_raw = session[:tmp_diagnosis_raw]
 	@diagnosed_right = session[:tmp_diagnosis_right].size.to_s
