@@ -1,6 +1,6 @@
 Diagnose::Application.routes.draw do
   
-  
+  devise_for :users
   resources :categories
   
   controller 'diagnoses' do

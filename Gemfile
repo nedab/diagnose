@@ -72,3 +72,9 @@ gem 'friendly_id'
 gem 'haml'
 
 gem 'html2haml'
+
+gem 'devise'
+
+gem 'cancan'
+
+gem 'rolify'

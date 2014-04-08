@@ -10,15 +10,16 @@
  *
  *= require_self
  //= require foundation_and_overrides
-
  *= require foundation
  *= require foundation_and_overrides
  *= require_tree .
  */
 @import "foundation_and_overrides";
+@import "foundation/components/top-bar";
 /* Add imports of custom sass/scss files here */
 .red_bold {color: red;
     font-weight: bold;}
 .green_bold {color: green;
     font-weight: bold;}
 .center {text-align: center;}
+.white-title {color: #FFFFFF;}

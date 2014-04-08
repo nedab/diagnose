@@ -14,6 +14,7 @@ class DiagnosesController < ApplicationController
 	session[:tmp_diagnosis_right] = nil
 	session[:tmp_diagnosis_array] = nil
 
+
   end
 
 

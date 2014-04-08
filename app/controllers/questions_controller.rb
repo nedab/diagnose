@@ -1,5 +1,6 @@
 class QuestionsController < ApplicationController
   before_action :set_question, only: [:show, :edit, :update, :destroy], except: [:math, :chemistry]
+  before_filter :authenticate_user!
   #rescue_from ActiveRecord::RecordNotFound, :with => :record_not_found
   
   layout 'wide'
