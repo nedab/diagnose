@@ -78,3 +78,5 @@ gem 'devise'
 gem 'cancan'
 
 gem 'rolify'
+
+gem 'activeadmin', github: 'gregbell/active_admin'
