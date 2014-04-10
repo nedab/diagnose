@@ -60,7 +60,9 @@ Diagnose::Application.configure do
   # Precompile additional assets.
   # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
   # config.assets.precompile += %w( search.js )
-    config.assets.precompile += ['*.js', '*.css', '*.css.erb']
+config.assets.precompile += %w(active_admin.css active_admin/print.css rsvp.css)
+config.assets.precompile += %w(active_admin.js global.js rsvp.js)
+    #config.assets.precompile += ['*.js', '*.css', '*.css.erb']
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.

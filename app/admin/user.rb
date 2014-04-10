@@ -8,6 +8,7 @@ ActiveAdmin.register User do
     column :current_sign_in_at
     column :sign_in_count
     column :created_at
+    column :role
     actions
   end
 
@@ -21,6 +22,7 @@ ActiveAdmin.register User do
       f.input :email
       f.input :password
       f.input :password_confirmation
+      f.input :roles, as: :radio
     end
     f.actions
   end

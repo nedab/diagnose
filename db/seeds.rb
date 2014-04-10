@@ -7,6 +7,6 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 ##
 # some roles for rolify (devise and cancan)
-#[:admin, :author, :user].each do |role|
-#  Role.find_or_create_by_name({ name: role }, without_protection: true)
-#end
+[:admin, :author, :user].each do |role|
+  Role.find_or_create_by_name({ name: role }, without_protection: true)
+end

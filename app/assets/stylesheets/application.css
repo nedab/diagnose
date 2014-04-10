@@ -13,9 +13,6 @@
  *= require foundation
  *= require foundation_and_overrides
  */
-@import "foundation"
-@import "foundation_and_overrides";
-@import "foundation/components/top-bar";
 /* Add imports of custom sass/scss files here */
 .red_bold {color: red;
     font-weight: bold;}
