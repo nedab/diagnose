@@ -80,3 +80,7 @@ gem 'cancan'
 gem 'rolify'
 
 gem 'activeadmin', github: 'gregbell/active_admin'
+
+gem 'rails-latex'
+
+gem 'seed_dump'

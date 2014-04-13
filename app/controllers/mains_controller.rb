@@ -5,6 +5,8 @@ class MainsController < ApplicationController
   # GET /mains.json
   def index
     @mains = Main.all.order('mains.created_at DESC')
+
+
   end
 
   # GET /mains/1

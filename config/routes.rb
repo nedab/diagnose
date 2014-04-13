@@ -1,5 +1,6 @@
 Diagnose::Application.routes.draw do
   
+  resources :latex
   devise_for :users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   resources :categories

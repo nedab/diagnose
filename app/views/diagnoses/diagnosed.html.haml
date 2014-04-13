@@ -28,8 +28,31 @@
           when "4" then @questions.find(d[0]).answer4 |
           end                                         |
 %h2
-  Du hast also #{@diagnosed_right} richtig.
+  Du hast also #{@diagnosed_right_size} richtig.
 / <h2>Array: <haml:loud> @diagnosed_array </haml:loud></h2>
 = link_to "Erneut", :action => "index"
 %br/
-= @url
+= link_to "Übungsaufgaben drucken", :controller => "latex", :action => "index", :format => :pdf
+%br/
+%br/
+%br/
+
+-#%p 
+-#  Raw from form:
+-#  = @diagnosed_raw
+-#%p 
+-#  Array after sorting through:
+-#  = @diagnosed_array
+-#%p
+-#  Right:
+-#  = @diagnosed_right
+-#%p
+-#  Array minus Right:
+-#  = @diagnosed_array - @diagnosed_right
+-#%p
+-#  ex:
+-#  - @diagnosed_ex.each do |e|
+-#    = e.to_s
+-#%p
+-#  session diagnosed_ex_s:
+-#  = @diagnosed_exs

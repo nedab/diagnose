@@ -60,19 +60,21 @@ class DiagnosesController < ApplicationController
 	right = []
         result = []
 	array = []
-begin
-	params[:question_ids].each do |p|
+        
+        begin
+	  params[:question_ids].each do |p|
 		result = p.gsub(/\s+/m, ' ').strip.split(" ")
 		array << [result[0],result[1]]
 		if result[1] == Question.find(result[0].to_i).right.to_s then right << [result[0],result[1]] end
 	end
 
-rescue
-    redirect_to(:action => 'index')
-    return
-  end
+          rescue
+            redirect_to(:action => 'index')
+          return
+        end
 
-	if right.empty?
+	
+        if right.empty?
 		r = "0" 
 	else r = right.size end
 
@@ -97,13 +99,40 @@ rescue
   #GET from form_tag
   def diagnosed
 
-    @url = request.original_url
+    @questions = Question.all
+
 
         @diagnosed_raw = session[:tmp_diagnosis_raw]
-	@diagnosed_right = session[:tmp_diagnosis_right].size.to_s
+	@diagnosed_right_size = session[:tmp_diagnosis_right].size.to_s
+	@diagnosed_right = session[:tmp_diagnosis_right]
 	@diagnosed_array = session[:tmp_diagnosis_array]
 
-	@questions = Question.all
+    begin
+      ex = nil
+      ex = []
+      wrong = nil
+      wrong = []
+      wrong = session[:tmp_diagnosis_array] - session[:tmp_diagnosis_right]
+        if wrong.empty? then
+          ex = ["Nichts zu üben 1"]
+        else
+          wrong.each do |e|
+          ex << Question.find(e[0][0]).exercise
+        end
+
+      end
+
+    rescue
+      ex = ["Nichts zu üben 2"]
+    end
+
+    session[:tmp_diagnosed_ex] = ""
+ 
+    session[:tmp_diagnosed_ex] = ex.join.to_s
+
+    @diagnosed_exs = session[:tmp_diagnosed_ex]
+
+    @diagnosed_ex = ex
 
 
   end

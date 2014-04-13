@@ -89,7 +89,7 @@ class QuestionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def question_params
-      params.require(:question).permit(:title, :number, :content, :answer1, :answer2, :answer3, :answer4, :right, :category_id )
+      params.require(:question).permit(:title, :number, :content, :answer1, :answer2, :answer3, :answer4, :right, :category_id, :exercise )
     end
 
 #   def record_not_found

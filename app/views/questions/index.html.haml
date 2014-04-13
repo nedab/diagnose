@@ -11,6 +11,7 @@
       %th Answer3
       %th Answer4
       %th Right
+      %th Latex-Übung
       %th
       %th
       %th
@@ -26,6 +27,7 @@
         %td= q.answer3
         %td= q.answer4
         %td= q.right
+        %td= q.exercise
         %td= link_to 'Show', q
         %td= link_to 'Edit', edit_question_path(q)
         %td= link_to 'Destroy', q, method: :delete, data: { confirm: 'Are you sure?' }

@@ -1,0 +1,159 @@
+% Entweder die erste oder zweite Zeile auskommentieren
+\documentclass[addpoints,11pt]{exam} % für die SuS
+%\documentclass[addpoints, answers,10pt]{exam} % mit Lösungen und Bewertungsschlüssel
+
+<% @latex_config={:command => 'pdflatex',:parse_twice => true} # you can override the defaults if you wish; see LatexToPdf#config %>
+
+%ob miktex oder texlive
+%\usepackage[miktex]{gnuplottex}
+
+\usepackage[left=2cm,right=2.5cm,top=2cm,bottom=2cm]{geometry}
+
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage{eurosym}
+
+% Bera Sans
+% \usepackage{textcomp}
+% \usepackage[scaled=0.95]{berasans}
+
+% Babel
+\usepackage[ngerman,german]{babel}
+
+\usepackage{pdfpages}
+
+\usepackage{enumitem}
+
+\usepackage{amsmath}
+\usepackage{amssymb,amsfonts,textcomp}
+
+% Mathe in Tabellen
+\usepackage{array}
+\usepackage{tabularx}
+% nutze Grossbuchstaben, um mathematische Spalten zu definieren; für die erste Zeile: Ausweg multicolumn
+\newcolumntype{L}{>{\(}l<{\)}}
+\newcolumntype{C}{>{\(}c<{\)}}
+\newcolumntype{R}{>{\(}R<{\)}}
+
+\newcolumntype{z}{>{\centering\arraybackslash}X}
+
+\usepackage{tikz}
+\usetikzlibrary{trees}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+
+
+\usepackage{tkz-euclide,tkz-fct}
+\usetkzobj{all}
+
+
+% und hier die Methode um mit Times New Roman zu schreiben
+\usepackage{mathptmx}
+\usepackage[scaled=.90]{helvet} %helvet
+\usepackage{courier}
+
+% und hier Randkommentare mit Nummern
+\newcounter{margcount} %Zähler erzeugen
+\setcounter{margcount}{0} %Zähler auf 0 setzen
+\newcommand{\marginnote}[1] {\addtocounter{margcount}{1}$^{\arabic{margcount})}$ %fügt Randnotenzahl im Text ein
+\marginparsep = 1.5mm %Abstand der Randnote zum Text
+\marginpar{\raggedright\footnotesize\itshape \arabic{margcount}) #1 \par}} %Format der Randnote
+
+% Optionen fuer exam
+
+% Punkte und Lösungen
+% \boxedpoints
+% \checkboxchar{$\Box$}
+
+\bracketedpoints
+\usepackage{color}
+
+\pointsinrightmargin
+\pointpoints{Punkt}{Punkte}
+\renewcommand{\solutiontitle}{\noindent\textcolor{red}{\textbf{Lösung:~~}}}
+
+% header
+\pagestyle{headandfoot}
+\header{}{\thema}{<%= Time.now %>}
+\headrule 
+\runningheader{}{\thema (Fortsetzung)}{}
+
+% footer
+\firstpagefooter{\copyright diagnose!}{}{Seite \thepage\ von \numpages}
+\firstpagefootrule
+\runningfooter{\copyright diagnose! Fortsetzung}{Seite \thepage\ von \numpages}
+\runningfootrule
+
+% eigenes Punktesystem \p{}
+
+\newcommand{\p}[1]{\ifprintanswers $^\textit{\textbf{\textcolor{black}{{$~~\Rightarrow~ #1$}}}}$\else \fi}
+
+
+\newcommand{\notinanswer}[1]{\ifprintanswers \else #1 \fi}
+\newcommand{\inanswer}[1]{\ifprintanswers #1 \else  \fi}
+
+% Punkteberechnung mit PGFmath
+\newcommand{\punkteberechnung}[2]{ %zwei Argumente: Punkte #1 und dann der Faktor #2
+\pgfkeys{/pgf/number format/.cd,
+fixed,
+precision=4,
+set thousands separator={}}
+
+\edef\punkte{#1} %Punkte
+\edef\prozente{#2} % Prozente als Faktor
+
+\pgfmathmultiply{\punkte}{\prozente}
+\edef\zahl{\pgfmathresult}
+
+\pgfmathdivide{\zahl}{5}
+\edef\zahlG{\pgfmathresult}
+
+\pgfkeys{/pgf/number format/.cd,
+fixed,
+precision=1,
+set thousands separator={}}
+
+\pgfmathroundto{\zahlG}
+
+\pgfmathmultiply{\pgfmathresult}{5}
+\pgfmathroundto{\pgfmathresult}
+
+\pgfmathprintnumber[precision=1]{\pgfmathresult}
+}
+
+% Antworten am Ende sammeln
+\newbox\allanswers
+\setbox\allanswers=\vbox{}
+
+\newenvironment{answer}
+{%
+  \global\setbox\allanswers=\vbox\bgroup
+  \unvbox\allanswers
+}%
+{%
+  \bigbreak
+  \egroup
+}
+
+\newcommand{\showallanswers}{\par\unvbox\allanswers}
+
+% ende von ``Antworten sammeln am Ende''
+
+% Das Dokument
+
+\newcommand{\thema}{Übungsaufgaben}
+
+\begin{document}
+
+\begin{questions}
+
+<%= yield %>
+
+\end{questions}
+
+\textbf{Selbstkontrolle}\newline
+\showallanswers
+
+\end{document}
