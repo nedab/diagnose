@@ -3,6 +3,9 @@ Role.create!([
   {name: "user", resource_id: nil, resource_type: nil},
   {name: "author", resource_id: nil, resource_type: nil}
 ])
+User.create!([
+  {email: "admin@example.com", encrypted_password: "$2a$10$nqgM.v7WQGcK6vipnvm.XeDIon/yGIQ9IihbsJ7a3mMpeu8xN55xa", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 1, current_sign_in_at: "2014-04-14 10:23:30", last_sign_in_at: "2014-04-14 10:23:30", current_sign_in_ip: "127.0.0.1", last_sign_in_ip: "127.0.0.1", username: nil}
+])
 Category.create!([
   {title: "Mathematik", description: "Sek I"},
   {title: "Chemie", description: "Sek I"}
