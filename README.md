@@ -11,6 +11,7 @@ This app is everything but ready, so dont put too much work into it before check
  - [Screenshots](#screenshots)
  - [ToDo](#todo)
  - [How it works](#how-it-works)
+ - [Known Issues](#known-issues)
  - [AuthorS](#authorS)
  - [Copyright and license](#copyright-and-license)
 
@@ -73,6 +74,10 @@ The diagnosed view shows these arrays and gives you also the right answer.
 That is done by evaluating the array by a case method.
 
 The exercises sheet is created through a latex controller, and the code is messy, but it works.
+
+## Known Issues
+
+* ``rolify`` creates some problems when ``rake db:migrate``, so disable it in ``user.rb`` (plus the ``add_role`` there), and activate it after the database is reloaded and set up. Then you wont get this error ``PG::UndefinedTable: ERROR: relation "roles" does not exist``
 
 ## AuthorS
 
