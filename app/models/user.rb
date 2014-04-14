@@ -6,10 +6,10 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   ROLES = %w[admin author user]
 
-  after_create :assign_default_role
-  
-  private
-  def assign_default_role
-    add_role(:user)
-  end
+ # after_create :assign_default_role
+ # 
+ # private
+ # def assign_default_role
+ #   add_role(:user)
+ # end
 end
