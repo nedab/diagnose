@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.4'
+gem 'rails', '4.2.1'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
@@ -63,7 +63,7 @@ gem 'foundation-rails', '5.1.1.0'
 # using thin webserver as default: "rails s"
 gem 'thin'
 
-gem 'simple_form'
+gem 'simple_form', github: 'plataformatec/simple_form'
 
 gem 'pg'
 
@@ -75,11 +75,12 @@ gem 'html2haml'
 
 gem 'devise'
 
-gem 'cancan'
+gem 'cancancan'
 
 gem 'rolify'
 
-gem 'activeadmin', github: 'gregbell/active_admin'
+#gem 'activeadmin', github: 'gregbell/active_admin'
+gem 'activeadmin', github: 'activeadmin'
 
 gem 'rails-latex'
 
