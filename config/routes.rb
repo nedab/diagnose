@@ -1,7 +1,10 @@
 Diagnose::Application.routes.draw do
+
+devise_for :users, controllers: {sessions: 'users/sessions', registrations: 'users/registrations', passwords: 'users/passwords'}, path_names: { sign_in: 'login', sign_out: 'logout' }
+
   
   resources :latex
-  devise_for :users, ActiveAdmin::Devise.config
+  #devise_for :users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   resources :categories
   
