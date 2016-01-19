@@ -17,7 +17,7 @@ class DiagnosesController < ApplicationController
 
   end
 
-
+  # GET diagnoses/math picks random questions from "Mathematik"
   def math
     @maths = Question.joins(:category).where("categories.title = ?", "Mathematik").sample(2) 
 
